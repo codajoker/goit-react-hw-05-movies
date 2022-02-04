@@ -44,8 +44,8 @@ function MoviesPage() {
             return (
               <li key={movie.id}>
                 <Link
-                  to={`/${movie.id}`}
-                  state={`/movies${window.location.search}`}
+                  to={`movies/${movie.id}`}
+                  state={`movies${window.location.search}`}
                 >
                   {movie.title}
                 </Link>
