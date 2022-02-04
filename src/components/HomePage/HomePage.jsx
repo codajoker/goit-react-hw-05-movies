@@ -15,16 +15,16 @@ function HomePage() {
       <ul>
         {arrayFilm &&
           arrayFilm.map(film => {
-            if (film.title) {
-              return (
+            return (
+              film.title && (
                 <li key={film.id}>
                   <Link to={`movies/${film.id}`} state={'/'}>
                     {' '}
                     {film.title}
                   </Link>
                 </li>
-              );
-            }
+              )
+            );
           })}
       </ul>
     </>
