@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+
+  align-items: center;
+  width: 500px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 35px;
+}
+.activeLink {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: aqua;
+  font-size: 35px;
+}
