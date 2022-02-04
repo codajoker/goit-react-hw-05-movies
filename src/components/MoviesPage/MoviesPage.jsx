@@ -41,12 +41,12 @@ function MoviesPage() {
       <ul>
         {movies &&
           movies.map(movie => {
-            console.log(`${movie.id}`);
+            console.log(`/movies${window.location.search}`);
             return (
               <li key={movie.id}>
                 <Link
                   to={`${movie.id}`}
-                  state={`movies${window.location.search}`}
+                  state={`/movies${window.location.search}`}
                 >
                   {movie.title}
                 </Link>
