@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, NavLink, Routes, Route, Outlet } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { apiCredits } from '../api/Api';
 
 function Cast() {
