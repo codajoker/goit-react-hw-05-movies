@@ -17,7 +17,7 @@ function MoviesPage() {
   const onSubmitForm = async e => {
     e.preventDefault();
     setSearchParams({ query: query.trim() });
-    if (searchParams.get('query') === '') {
+    if (searchParams.get('query')) {
       return alert('Введите в поле поиска что то ');
     }
     apiQuery(searchParams.get('query')).then(({ data }) => {
@@ -41,11 +41,11 @@ function MoviesPage() {
       <ul>
         {movies &&
           movies.map(movie => {
-            console.log(`/${movie.id}`);
+            console.log(`${movie.id}`);
             return (
               <li key={movie.id}>
                 <Link
-                  to={`/${movie.id}`}
+                  to={`${movie.id}`}
                   state={`movies${window.location.search}`}
                 >
                   {movie.title}
