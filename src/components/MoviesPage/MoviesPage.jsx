@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { apiQuery } from '../api/Api';
 
 function MoviesPage() {
   const [movies, setMovies] = useState(false);
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const location = useLocation();
   useEffect(() => {
     if (searchParams.get('query')) {
       apiQuery(searchParams.get('query')).then(({ data }) => {
@@ -14,7 +14,7 @@ function MoviesPage() {
       });
     }
   }, [searchParams]);
-  const onSubmitForm = async e => {
+  const onSubmitForm = e => {
     e.preventDefault();
     setSearchParams({ query: query.trim() });
     if (searchParams.get('query') === '') {
@@ -41,12 +41,11 @@ function MoviesPage() {
       <ul>
         {movies &&
           movies.map(movie => {
-            console.log(`/movies${window.location.search}`);
             return (
               <li key={movie.id}>
                 <Link
                   to={`${movie.id}`}
-                  state={`/movies${window.location.search}`}
+                  state={`${location.pathname}${location.search}`}
                 >
                   {movie.title}
                 </Link>
